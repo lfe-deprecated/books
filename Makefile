@@ -4,8 +4,13 @@ help:
 	@echo
 	@echo "To add a new book to this repo, look at the Makefile targets"
 	@echo "for the other books, already present. Create targets like"
-	@echo "those (along with a unique VAR for the book's repo) and pull"
-	@echo "in the new content."
+	@echo "those (along with a unique VAR for the book's repo and"
+	@echo "directory)."
+	@echo
+	@echo "Once you've added your targets, run your 'init' target via"
+	@echo "make. Future updates to your book can be pulled in here with"
+	@echo "your added 'update' target (or you can update all books with"
+	@echo "the general-purpose update target)."
 	@echo
 	@echo "Note: the source repo branch needs to be the one that publishes"
 	@echo "the final HTML output of the generated document."
