@@ -11,9 +11,6 @@ help:
 	@echo "the final HTML output of the generated document."
 	@echo
 
-
-update: update-$(CASTING_SPELS_DIR)
-
 CASTING_SPELS_REPO = https://github.com/cnbbooks/lfe-casting-spels.git
 CASTING_SPELS_DIR = casting-spels
 
@@ -31,3 +28,5 @@ update-$(CASTING_SPELS_DIR):
 	   $(CASTING_SPELS_REPO) \
 	   master \
 	   --squash
+
+update: update-$(CASTING_SPELS_DIR)
