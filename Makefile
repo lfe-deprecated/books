@@ -79,7 +79,7 @@ update-$(TUT_DIR):
 # --- SICP targets ------------------------------------
 
 SICP_REPO = https://github.com/cnbbooks/lfe-sicp.git
-SICP_DIR = tutorial
+SICP_DIR = sicp
 
 init-$(SICP_DIR):
 	@git subtree add \
