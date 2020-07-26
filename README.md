@@ -4,11 +4,13 @@
 
 This repository is a collection of `git subtree`s for published LFE books.
 
-Please to not issue pull requests against this repo, as it is read-only.
+Please do not issue pull requests against this repo, as it is essentially read-only.
 
 Acutal book content is mainted in Markdown files in `builder` branches (see the repositories linked below). Content is generated in `master` branches. Pull requests need to be issued against the Markdown files in the `builder` branches below.
 
-Any feedback, bugs, requests, etc., shoulc be filed against the appropriate book in the links below.
+Any feedback, bugs, requests, etc., should be filed against the appropriate book in the links below.
+
+Developers and contributers should scroll to the bottom of this file to read instructions on how to incorporate and publish changes to the LFE books.
 
 ---
 
