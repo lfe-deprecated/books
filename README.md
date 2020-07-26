@@ -20,6 +20,12 @@ Developers and contributers should scroll to the bottom of this file to read ins
 * [Submit request/feedback ticket](https://github.com/cnbbooks/lfe-rebar3-quick-start/issues/new)
 * [Published content](https://lfe.io/books/rebar3-quick-start/)
 
+# LFE Tutorial
+
+* [Official repository](https://github.com/cnbbooks/lfe-tutorial.git)
+* [Submit request/feedback ticket](https://github.com/cnbbooks/lfe-tutorial/issues/new)
+* [Published content](https://lfe.io/books/tutorial/)
+
 # Casting SPELs in LFE
 
 * [Official repository](https://github.com/cnbbooks/lfe-casting-spels.git)

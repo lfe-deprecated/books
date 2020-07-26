@@ -16,6 +16,8 @@ help:
 	@echo "the final HTML output of the generated document."
 	@echo
 
+# --- Casting SPELs targets -----------------------------------
+
 CASTING_SPELS_REPO = https://github.com/cnbbooks/lfe-casting-spels.git
 CASTING_SPELS_DIR = casting-spels
 
@@ -33,6 +35,8 @@ update-$(CASTING_SPELS_DIR):
 	   $(CASTING_SPELS_REPO) \
 	   master \
 	   --squash
+
+# --- rebar3_lfe Quick Start targets --------------------------
 
 R3_QSTART_REPO = https://github.com/cnbbooks/lfe-rebar3-quick-start.git
 R3_QSTART_DIR = rebar3-quick-start
@@ -52,9 +56,32 @@ update-$(R3_QSTART_DIR):
 	   master \
 	   --squash
 
+# --- LFE Tutorial targets ------------------------------------
+
+TUT_REPO = https://github.com/cnbbooks/lfe-tutorial.git
+TUT_DIR = tutorial
+
+init-$(TUT_DIR):
+	@git subtree add \
+	   --prefix $(TUT_DIR) \
+	   $(TUT_REPO) \
+	   master \
+	   --squash
+
+update-$(TUT_DIR):
+	@git subtree pull \
+	   --m "Updated latest from $(TUT_DIR)." \
+	   --prefix $(TUT_DIR) \
+	   $(TUT_REPO) \
+	   master \
+	   --squash
+
+# --- Genereal publishing targets -----------------------------
+
 update: \
 	update-$(CASTING_SPELS_DIR) \
-	update-$(R3_QSTART_DIR)
+	update-$(R3_QSTART_DIR) \
+	update-$(TUT_DIR)
 
 publish: update
 	@git push origin master
