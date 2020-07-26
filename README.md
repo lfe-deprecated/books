@@ -32,6 +32,12 @@ Developers and contributers should scroll to the bottom of this file to read ins
 * [Submit request/feedback ticket](https://github.com/cnbbooks/lfe-casting-spels/issues/new)
 * [Published content](https://lfe.io/books/casting-spels/)
 
+# Structure and Interpretation of Computer Programs
+
+* [Official repository](https://github.com/cnbbooks/lfe-sicp.git)
+* [Submit request/feedback ticket](https://github.com/cnbbooks/lfe-sicp/issues/new)
+* [Published content](https://lfe.io/books/sicp/)
+
 ---
 
 # Developer / Contributor Notes

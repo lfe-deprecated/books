@@ -76,12 +76,33 @@ update-$(TUT_DIR):
 	   master \
 	   --squash
 
+# --- SICP targets ------------------------------------
+
+SICP_REPO = https://github.com/cnbbooks/lfe-sicp.git
+SICP_DIR = tutorial
+
+init-$(SICP_DIR):
+	@git subtree add \
+	   --prefix $(SICP_DIR) \
+	   $(SICP_REPO) \
+	   master \
+	   --squash
+
+update-$(SICP_DIR):
+	@git subtree pull \
+	   --m "Updated latest from $(SICP_DIR)." \
+	   --prefix $(SICP_DIR) \
+	   $(SICP_REPO) \
+	   master \
+	   --squash
+
 # --- Genereal publishing targets -----------------------------
 
 update: \
 	update-$(CASTING_SPELS_DIR) \
 	update-$(R3_QSTART_DIR) \
-	update-$(TUT_DIR)
+	update-$(TUT_DIR) \
+	update-$(SICP_DIR)
 
 publish: update
 	@git push origin master
