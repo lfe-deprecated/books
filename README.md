@@ -1,6 +1,4 @@
-# LFE Books
-
-## About this Repository
+# About this Repository
 
 This repository is a collection of `git subtree`s for published LFE books.
 
@@ -14,15 +12,15 @@ Developers and contributers should scroll to the bottom of this file to read ins
 
 ---
 
-## Published LFE Books
+# Published LFE Books
 
-### `rebar3` Quick Start
+## `rebar3` Quick Start
 
 * [Official repository](https://github.com/cnbbooks/lfe-rebar3-quick-start.git)
 * [Submit request/feedback ticket](https://github.com/cnbbooks/lfe-rebar3-quick-start/issues/new)
 * [Published content](https://lfe.io/books/rebar3-quick-start/)
 
-### Casting SPELs in LFE
+# Casting SPELs in LFE
 
 * [Official repository](https://github.com/cnbbooks/lfe-casting-spels.git)
 * [Submit request/feedback ticket](https://github.com/cnbbooks/lfe-casting-spels/issues/new)
@@ -30,7 +28,7 @@ Developers and contributers should scroll to the bottom of this file to read ins
 
 ---
 
-## Developer / Contributor Notes
+# Developer / Contributor Notes
 
 1. To update a book, visit the repository for that book (linked above).
 1. For the repository, and clone to your machine.
@@ -42,3 +40,11 @@ At this point, a reviewer will examine the change, provide feedback, and iterate
 Once approved, the changes will be merged to the `builder` branch and the reviewer will publish these changes to `master`.
 
 Then the reviewer will update the `master` branch that collects all publised LFE books ([https://github.com/lfe/books](https://github.com/lfe/books)) and push that up to Github, at which point you changes will show up for the given book.
+
+# Reviewer Notes
+
+When adding a new book to the repo, be sure to run `make` first: this will remind you of the steps needed (i.e., updates to the `Makefile` and `README`).
+
+Once those changes are made, to add the actual content for a new book, run `make init-YOUR-BOOK`.
+
+To publish any changes made upstream (e.g., after the merging of a pull request), be sure to run `make update` in your working directoy of this project, and then `git push origin master`. After that, the latest version of all books will be published.
