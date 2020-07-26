@@ -34,4 +34,22 @@ update-$(CASTING_SPELS_DIR):
 	   master \
 	   --squash
 
-update: update-$(CASTING_SPELS_DIR)
+R3_QSTART_REPO = https://github.com/cnbbooks/lfe-rebar3-quick-start.git
+R3_QSTART_DIR = rebar3-quick-start
+
+init-$(R3_QSTART_DIR):
+	@git subtree add \
+	   --prefix $(R3_QSTART_DIR) \
+	   $(R3_QSTART_REPO) \
+	   master \
+	   --squash
+
+update-$(R3_QSTART_DIR):
+	@git subtree pull \
+	   --m "Updated latest from $(R3_QSTART_DIR)." \
+	   --prefix $(R3_QSTART_DIR) \
+	   $(R3_QSTART_REPO) \
+	   master \
+	   --squash
+
+update: update-$(CASTING_SPELS_DIR) update-$(R3_QSTART_DIR)
