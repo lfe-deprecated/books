@@ -1,2 +1,2 @@
-# Content for SICP, the LFE Edition
-Published at [lfe.io/books/sicp/](https://lfe.io/books/sicp/)
+# Content for LFE Tutorial
+Published at [lfe.io/books/tutorial/](https://lfe.io/books/tutorial/)
