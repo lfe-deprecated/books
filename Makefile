@@ -52,4 +52,9 @@ update-$(R3_QSTART_DIR):
 	   master \
 	   --squash
 
-update: update-$(CASTING_SPELS_DIR) update-$(R3_QSTART_DIR)
+update: \
+	update-$(CASTING_SPELS_DIR) \
+	update-$(R3_QSTART_DIR)
+
+publish: update
+	@git push origin master

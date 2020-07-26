@@ -47,4 +47,4 @@ When adding a new book to the repo, be sure to run `make` first: this will remin
 
 Once those changes are made, to add the actual content for a new book, run `make init-YOUR-BOOK`.
 
-To publish any changes made upstream (e.g., after the merging of a pull request), be sure to run `make update` in your working directoy of this project, and then `git push origin master`. After that, the latest version of all books will be published.
+To publish any changes made upstream (e.g., after the merging of a pull request), be sure to run `make publish` in your working directoy of this project. After that, the latest version of all books will be published.
