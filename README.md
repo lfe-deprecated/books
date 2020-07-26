@@ -1,5 +1,13 @@
 # Published LFE Books
 
+## About this Repository
+
+This repository is a collection of `git subtree`s for published LFE books.
+
+Please to not issue pull requests against this repo, as it is read-only.
+
+Acutal book content is mainted in Markdown files in `builder` branches (see the repositories linked below). Content is generated in `master` branches. Pull requests need to be issued against the Markdown files in the `builder` branches below.
+
 ## `rebar3` Quick Start
 
 * [Official repository](https://github.com/cnbbooks/lfe-rebar3-quick-start.git)
