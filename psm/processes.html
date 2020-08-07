@@ -1,0 +1,317 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js lfe-pdp">
+
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>Processes - The LFE Style Guide</title>
+    
+    
+
+
+    <!-- Custom HTML head -->
+    
+
+
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="description" content="Recommended styles and basic best practices when programming in LFE">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" href="../favicon.svg">
+    <link rel="shortcut icon" href="../favicon.png">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/chrome.css">
+    <link rel="stylesheet" href="../css/print.css" media="print">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+    
+    <link rel="stylesheet" href="../fonts/fonts.css">
+    
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="../highlight.css">
+    <link rel="stylesheet" href="../tomorrow-night.css">
+    <link rel="stylesheet" href="../ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    
+    <link rel="stylesheet" href="../css/custom.css">
+    
+
+    
+</head>
+
+<body>
+    <!-- Provide site root to javascript -->
+    <script type="text/javascript">
+        var path_to_root = "../";
+        var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "lfe-pdp" : "lfe-pdp";
+    </script>
+
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script type="text/javascript">
+        try {
+            var theme = localStorage.getItem('mdbook-theme');
+            var sidebar = localStorage.getItem('mdbook-sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>
+
+    <!-- Set the theme before any content is loaded, prevents flash -->
+    <script type="text/javascript">
+        var theme;
+        try { theme = localStorage.getItem('mdbook-theme'); } catch (e) { }
+        if (theme === null || theme === undefined) { theme = default_theme; }
+        var html = document.querySelector('html');
+        html.classList.remove('no-js')
+        html.classList.remove('lfe-pdp')
+        html.classList.add(theme);
+        html.classList.add('js');
+    </script>
+
+    <!-- Hide / unhide sidebar before it is displayed -->
+    <script type="text/javascript">
+        var html = document.querySelector('html');
+        var sidebar = 'hidden';
+        if (document.body.clientWidth >= 1080) {
+            try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch (e) { }
+            sidebar = sidebar || 'visible';
+        }
+        html.classList.remove('sidebar-visible');
+        html.classList.add("sidebar-" + sidebar);
+    </script>
+
+    <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <div class="sidebar-scrollbox">
+            <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">The LFE Style Guide</a></li><li class="chapter-item expanded affix "><a href="../title.html">Title Page</a></li><li class="chapter-item expanded affix "><a href="../copyright.html">Copyright</a></li><li class="chapter-item expanded affix "><a href="../preface.html">Preface</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../intro/index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../format/index.html"><strong aria-hidden="true">2.</strong> Formatting</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../format/headers.html"><strong aria-hidden="true">2.1.</strong> File Headers</a></li><li class="chapter-item expanded "><a href="../format/indent.html"><strong aria-hidden="true">2.2.</strong> Indentation</a></li><li class="chapter-item expanded "><a href="../format/whtsp.html"><strong aria-hidden="true">2.3.</strong> Whitespace</a></li><li class="chapter-item expanded "><a href="../format/line-len.html"><strong aria-hidden="true">2.4.</strong> Line Length</a></li><li class="chapter-item expanded "><a href="../format/spelling.html"><strong aria-hidden="true">2.5.</strong> Spelling and Abbreviations</a></li></ol></li><li class="chapter-item expanded "><a href="../names/index.html"><strong aria-hidden="true">3.</strong> Naming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../names/symbols.html"><strong aria-hidden="true">3.1.</strong> Symbols</a></li><li class="chapter-item expanded "><a href="../names/mod-vars.html"><strong aria-hidden="true">3.2.</strong> Names in Modules</a></li><li class="chapter-item expanded "><a href="../names/globals.html"><strong aria-hidden="true">3.3.</strong> Globals</a></li><li class="chapter-item expanded "><a href="../names/predicates.html"><strong aria-hidden="true">3.4.</strong> Predicates</a></li><li class="chapter-item expanded "><a href="../names/intent.html"><strong aria-hidden="true">3.5.</strong> Intent</a></li></ol></li><li class="chapter-item expanded "><a href="../docs/index.html"><strong aria-hidden="true">4.</strong> Documentation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../docs/docstrings.html"><strong aria-hidden="true">4.1.</strong> Docstrings</a></li><li class="chapter-item expanded "><a href="../docs/comments.html"><strong aria-hidden="true">4.2.</strong> Code Comments</a></li><li class="chapter-item expanded "><a href="../docs/todos.html"><strong aria-hidden="true">4.3.</strong> Attention Required</a></li></ol></li><li class="chapter-item expanded "><a href="../repr/index.html"><strong aria-hidden="true">5.</strong> Data Representation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../repr/lists.html"><strong aria-hidden="true">5.1.</strong> Lists</a></li><li class="chapter-item expanded "><a href="../repr/tuples.html"><strong aria-hidden="true">5.2.</strong> Tuples and Proplists</a></li><li class="chapter-item expanded "><a href="../repr/maps.html"><strong aria-hidden="true">5.3.</strong> Maps</a></li><li class="chapter-item expanded "><a href="../repr/records.html"><strong aria-hidden="true">5.4.</strong> Records</a></li></ol></li><li class="chapter-item expanded "><a href="../errors/index.html"><strong aria-hidden="true">6.</strong> Errors</a></li><li class="chapter-item expanded "><a href="../psm/index.html"><strong aria-hidden="true">7.</strong> Processes, Servers &amp; Messages</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../psm/processes.html" class="active"><strong aria-hidden="true">7.1.</strong> Processes</a></li><li class="chapter-item expanded "><a href="../psm/servers.html"><strong aria-hidden="true">7.2.</strong> Servers</a></li><li class="chapter-item expanded "><a href="../psm/messages.html"><strong aria-hidden="true">7.3.</strong> Messages</a></li></ol></li><li class="chapter-item expanded "><a href="../components/index.html"><strong aria-hidden="true">8.</strong> Software Components</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../components/flow.html"><strong aria-hidden="true">8.1.</strong> Flow Control</a></li><li class="chapter-item expanded "><a href="../components/funcs.html"><strong aria-hidden="true">8.2.</strong> Functions</a></li><li class="chapter-item expanded "><a href="../components/modules.html"><strong aria-hidden="true">8.3.</strong> Modules</a></li><li class="chapter-item expanded "><a href="../components/libraries.html"><strong aria-hidden="true">8.4.</strong> Libraries</a></li><li class="chapter-item expanded "><a href="../components/projects.html"><strong aria-hidden="true">8.5.</strong> Projects</a></li></ol></li><li class="chapter-item expanded "><a href="../swe/index.html"><strong aria-hidden="true">9.</strong> Software Engineering</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../swe/principles.html"><strong aria-hidden="true">9.1.</strong> Principles</a></li><li class="chapter-item expanded "><a href="../swe/priorities.html"><strong aria-hidden="true">9.2.</strong> Priorities</a></li><li class="chapter-item expanded "><a href="../swe/architecture.html"><strong aria-hidden="true">9.3.</strong> Architecture</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../feedback.html">Feedback</a></li><li class="chapter-item expanded affix "><a href="../redirects/docs.html">LFE Documentation</a></li><li class="chapter-item expanded affix "><a href="../redirects/rebar3.html">LFE rebar3 Plugin</a></li><li class="chapter-item expanded affix "><a href="../redirects/mdbook.html">Built with mdBook</a></li></ol>
+        </div>
+        <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+    </nav>
+
+    <div id="page-wrapper" class="page-wrapper">
+
+        <div class="page">
+            
+            <div id="menu-bar-hover-placeholder"></div>
+            <div id="menu-bar" class="menu-bar sticky bordered">
+                <div class="left-buttons">
+                    <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
+                        aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <button id="theme-toggle" class="icon-button" type="button" title="Change theme"
+                        aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                        <i class="fa fa-paint-brush"></i>
+                    </button>
+                    <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="lfe-pdp">LFE PDP</button></li>
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="light">Light</button></li>
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="rust">Rust</button></li>
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="coal">Coal</button></li>
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="navy">Navy</button></li>
+                        <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button>
+                        </li>
+                    </ul>
+                    
+                    <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                        aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S"
+                        aria-controls="searchbar">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    
+                </div>
+
+                <h1 class="menu-title">The LFE Style Guide</h1>
+
+                <div class="right-buttons">
+                    <a href="../print.html" title="Print this book" aria-label="Print this book">
+                        <i id="print-button" class="fa fa-print"></i>
+                    </a>
+                    
+                    <a href="https://github.com/cnbbooks/lfe-style-guide" title="Git repository" aria-label="Git repository">
+                        <i id="git-repository-button" class="fa fa-github"></i>
+                    </a>
+                    
+                </div>
+            </div>
+
+            
+            <div id="search-wrapper" class="hidden">
+                <form id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" name="search" id="searchbar" name="searchbar"
+                        placeholder="Search this book ..." aria-controls="searchresults-outer"
+                        aria-describedby="searchresults-header">
+                </form>
+                <div id="searchresults-outer" class="searchresults-outer hidden">
+                    <div id="searchresults-header" class="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+            </div>
+            
+
+            <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+            <script type="text/javascript">
+                document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                Array.from(document.querySelectorAll('#sidebar a')).forEach(function (link) {
+                    link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                });
+            </script>
+
+            <div id="content" class="content">
+                <main>
+                    <h1><a class="header" href="#processes" id="processes">Processes</a></h1>
+<h2><a class="header" href="#implement-a-process-in-one-module" id="implement-a-process-in-one-module">Implement a process in one module</a></h2>
+<p>Code for implementing a single process should be contained in one module. A process can call functions in any library routines but the code for the &quot;top loop&quot; of the process should be contained in a single module. The code for the top loop of a process should not be split into several modules - this would make the flow of control extremely difficult to understand. This does not mean that one should not make use of generic server libraries, these are for helping structuring the control flow.</p>
+<p>Conversely, code for no more than one kind of process should be implemented in a single module. Modules containing code for several different processes can be extremely difficult to understand. The code for each individual process should be broken out into a separate module.</p>
+<h2><a class="header" href="#use-processes-for-structuring-the-system" id="use-processes-for-structuring-the-system">Use processes for structuring the system</a></h2>
+<p>Processes are the basic system structuring elements. But don't use processes and message passing when a function call can be used instead.</p>
+<h2><a class="header" href="#registered-processes" id="registered-processes">Registered processes</a></h2>
+<p>Registered processes should be registered with the same name as the module. This makes it easy to find the code for a process.</p>
+<p>Only register processes that should live a long time.</p>
+<h2><a class="header" href="#assign-exactly-one-parallel-process-to-each-true-concurrent-activity-in-the-system" id="assign-exactly-one-parallel-process-to-each-true-concurrent-activity-in-the-system">Assign exactly one parallel process to each true concurrent activity in the system</a></h2>
+<p>When deciding whether to implement things using sequential or parallel processes then the structure implied by the intrinsic structure of the problem should be used. The main rule is:</p>
+<p>&quot;Use one parallel process to model each truly concurrent activity in the real world&quot;</p>
+<p>If there is a one-to-one mapping between the number of parallel processes and the number of truly parallel activities in the real world, the program will be easy to understand.</p>
+<h2><a class="header" href="#each-process-should-only-have-one-role" id="each-process-should-only-have-one-role">Each process should only have one &quot;role&quot;</a></h2>
+<p>Processes can have different roles in the system, for example in the client-server model.</p>
+<p>As far as possible a process should only have one role, i.e. it can be a client or a server but should not combine these roles.</p>
+<p>Other roles which process might have are:</p>
+<p>Supervisor: watches other processes and restarts them if they fail.
+Worker: a normal work process (can have errors).
+Trusted Worker: not allowed to have errors.</p>
+<h2><a class="header" href="#use-the-process-dictionary-with-extreme-care" id="use-the-process-dictionary-with-extreme-care">Use the process dictionary with extreme care</a></h2>
+<p>Do not use get and put etc. unless you know exactly what you are doing! Use get and put etc., as little as possible.</p>
+<p>A function that uses the process dictionary can be rewritten by introducing a new argument.</p>
+<p>Don't program like this:</p>
+<pre><code class="language-lisp">(defun tokenize
+  ((`(,head . ,tail))
+    ...)
+  (('())
+    (case (get-characters-from-device (get 'device))
+      ('eof
+        '())
+      (`#(value ,chars)
+        (tokenize chars)))))
+</code></pre>
+<p>The correct solution:</p>
+<pre><code class="language-lisp">(defun tokenize
+  ((device (,head . ,tail))
+    ...)
+  ((device '())
+    (case (get-characters-from-device device)
+      ('eof
+        '())
+      (`#(value, chars)
+        (tokenize device chars)))))
+</code></pre>
+<p>The use of get and put will cause a function to behave differently when called with the same input at different occasions. This makes the code hard to read since it is non-deterministic. Debugging will be more complicated since a function using get and put is a function of not only of its argument, but also of the process dictionary. Many of the run time errors in LFE (for example bad_match) include the arguments to a function, but never the process dictionary.</p>
+
+                </main>
+
+                <nav class="nav-wrapper" aria-label="Page navigation">
+                    <!-- Mobile navigation buttons -->
+                    
+                    <a rel="prev" href="../psm/index.html" class="mobile-nav-chapters previous"
+                        title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    
+
+                    
+                    <a rel="next" href="../psm/servers.html" class="mobile-nav-chapters next"
+                        title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                    
+
+                    <div style="clear: both"></div>
+                </nav>
+            </div>
+        </div>
+
+        <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            
+            <a rel="prev" href="../psm/index.html" class="nav-chapters previous" title="Previous chapter"
+                aria-label="Previous chapter" aria-keyshortcuts="Left">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            
+
+            
+            <a rel="next" href="../psm/servers.html" class="nav-chapters next" title="Next chapter"
+                aria-label="Next chapter" aria-keyshortcuts="Right">
+                <i class="fa fa-angle-right"></i>
+            </a>
+            
+        </nav>
+
+    </div>
+
+    
+
+    
+    <!-- Google Analytics Tag -->
+    <script type="text/javascript">
+        var localAddrs = ["localhost", "127.0.0.1", ""];
+
+        // make sure we don't activate google analytics if the developer is
+        // inspecting the book locally...
+        if (localAddrs.indexOf(document.location.hostname) === -1) {
+            (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-38274766-4', 'auto');
+            ga('send', 'pageview');
+        }
+    </script>
+    
+
+    
+
+    
+    <script type="text/javascript">
+        window.playground_copyable = true;
+    </script>
+    
+
+    
+
+    
+    <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+    
+
+    <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Custom JS scripts -->
+    
+
+    
+
+</body>
+
+</html>
