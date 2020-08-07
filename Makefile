@@ -96,13 +96,34 @@ update-$(SICP_DIR):
 	   master \
 	   --squash
 
+# --- Style Guide targets ------------------------------------
+
+STYLEGUIDE_REPO = https://github.com/cnbbooks/lfe-style-guide.git
+STYLEGUIDE_DIR = style-guide
+
+init-$(STYLEGUIDE_DIR):
+	@git subtree add \
+	   --prefix $(STYLEGUIDE_DIR) \
+	   $(STYLEGUIDE_REPO) \
+	   master \
+	   --squash
+
+update-$(STYLEGUIDE_DIR):
+	@git subtree pull \
+	   --m "Updated latest from $(STYLEGUIDE_DIR)." \
+	   --prefix $(STYLEGUIDE_DIR) \
+	   $(STYLEGUIDE_REPO) \
+	   master \
+	   --squash
+
 # --- Genereal publishing targets -----------------------------
 
 update: \
 	update-$(CASTING_SPELS_DIR) \
 	update-$(R3_QSTART_DIR) \
 	update-$(TUT_DIR) \
-	update-$(SICP_DIR)
+	update-$(SICP_DIR) \
+	update-$(STYLEGUIDE_DIR)
 
 publish: update
 	@git push origin master
