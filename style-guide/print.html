@@ -1,0 +1,1129 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js lfe-pdp">
+
+<head>
+    <!-- Book generated using mdBook -->
+    <meta charset="UTF-8">
+    <title>The LFE Style Guide</title>
+    
+    <meta name="robots" content="noindex" />
+    
+    
+
+
+    <!-- Custom HTML head -->
+    
+
+
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="description" content="Recommended styles and basic best practices when programming in LFE">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chrome.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+    
+    <link rel="stylesheet" href="fonts/fonts.css">
+    
+
+    <!-- Highlight.js Stylesheets -->
+    <link rel="stylesheet" href="highlight.css">
+    <link rel="stylesheet" href="tomorrow-night.css">
+    <link rel="stylesheet" href="ayu-highlight.css">
+
+    <!-- Custom theme stylesheets -->
+    
+    <link rel="stylesheet" href="css/custom.css">
+    
+
+    
+</head>
+
+<body>
+    <!-- Provide site root to javascript -->
+    <script type="text/javascript">
+        var path_to_root = "";
+        var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "lfe-pdp" : "lfe-pdp";
+    </script>
+
+    <!-- Work around some values being stored in localStorage wrapped in quotes -->
+    <script type="text/javascript">
+        try {
+            var theme = localStorage.getItem('mdbook-theme');
+            var sidebar = localStorage.getItem('mdbook-sidebar');
+
+            if (theme.startsWith('"') && theme.endsWith('"')) {
+                localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+            }
+
+            if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+            }
+        } catch (e) { }
+    </script>
+
+    <!-- Set the theme before any content is loaded, prevents flash -->
+    <script type="text/javascript">
+        var theme;
+        try { theme = localStorage.getItem('mdbook-theme'); } catch (e) { }
+        if (theme === null || theme === undefined) { theme = default_theme; }
+        var html = document.querySelector('html');
+        html.classList.remove('no-js')
+        html.classList.remove('lfe-pdp')
+        html.classList.add(theme);
+        html.classList.add('js');
+    </script>
+
+    <!-- Hide / unhide sidebar before it is displayed -->
+    <script type="text/javascript">
+        var html = document.querySelector('html');
+        var sidebar = 'hidden';
+        if (document.body.clientWidth >= 1080) {
+            try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch (e) { }
+            sidebar = sidebar || 'visible';
+        }
+        html.classList.remove('sidebar-visible');
+        html.classList.add("sidebar-" + sidebar);
+    </script>
+
+    <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+        <div class="sidebar-scrollbox">
+            <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">The LFE Style Guide</a></li><li class="chapter-item expanded affix "><a href="title.html">Title Page</a></li><li class="chapter-item expanded affix "><a href="copyright.html">Copyright</a></li><li class="chapter-item expanded affix "><a href="preface.html">Preface</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="intro/index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="format/index.html"><strong aria-hidden="true">2.</strong> Formatting</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="format/headers.html"><strong aria-hidden="true">2.1.</strong> File Headers</a></li><li class="chapter-item expanded "><a href="format/indent.html"><strong aria-hidden="true">2.2.</strong> Indentation</a></li><li class="chapter-item expanded "><a href="format/whtsp.html"><strong aria-hidden="true">2.3.</strong> Whitespace</a></li><li class="chapter-item expanded "><a href="format/line-len.html"><strong aria-hidden="true">2.4.</strong> Line Length</a></li><li class="chapter-item expanded "><a href="format/spelling.html"><strong aria-hidden="true">2.5.</strong> Spelling and Abbreviations</a></li></ol></li><li class="chapter-item expanded "><a href="names/index.html"><strong aria-hidden="true">3.</strong> Naming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="names/symbols.html"><strong aria-hidden="true">3.1.</strong> Symbols</a></li><li class="chapter-item expanded "><a href="names/mod-vars.html"><strong aria-hidden="true">3.2.</strong> Names in Modules</a></li><li class="chapter-item expanded "><a href="names/globals.html"><strong aria-hidden="true">3.3.</strong> Globals</a></li><li class="chapter-item expanded "><a href="names/predicates.html"><strong aria-hidden="true">3.4.</strong> Predicates</a></li><li class="chapter-item expanded "><a href="names/intent.html"><strong aria-hidden="true">3.5.</strong> Intent</a></li></ol></li><li class="chapter-item expanded "><a href="docs/index.html"><strong aria-hidden="true">4.</strong> Documentation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="docs/docstrings.html"><strong aria-hidden="true">4.1.</strong> Docstrings</a></li><li class="chapter-item expanded "><a href="docs/comments.html"><strong aria-hidden="true">4.2.</strong> Code Comments</a></li><li class="chapter-item expanded "><a href="docs/todos.html"><strong aria-hidden="true">4.3.</strong> Attention Required</a></li></ol></li><li class="chapter-item expanded "><a href="repr/index.html"><strong aria-hidden="true">5.</strong> Data Representation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="repr/lists.html"><strong aria-hidden="true">5.1.</strong> Lists</a></li><li class="chapter-item expanded "><a href="repr/tuples.html"><strong aria-hidden="true">5.2.</strong> Tuples and Proplists</a></li><li class="chapter-item expanded "><a href="repr/maps.html"><strong aria-hidden="true">5.3.</strong> Maps</a></li><li class="chapter-item expanded "><a href="repr/records.html"><strong aria-hidden="true">5.4.</strong> Records</a></li></ol></li><li class="chapter-item expanded "><a href="errors/index.html"><strong aria-hidden="true">6.</strong> Errors</a></li><li class="chapter-item expanded "><a href="psm/index.html"><strong aria-hidden="true">7.</strong> Processes, Servers &amp; Messages</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="psm/processes.html"><strong aria-hidden="true">7.1.</strong> Processes</a></li><li class="chapter-item expanded "><a href="psm/servers.html"><strong aria-hidden="true">7.2.</strong> Servers</a></li><li class="chapter-item expanded "><a href="psm/messages.html"><strong aria-hidden="true">7.3.</strong> Messages</a></li></ol></li><li class="chapter-item expanded "><a href="components/index.html"><strong aria-hidden="true">8.</strong> Software Components</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="components/flow.html"><strong aria-hidden="true">8.1.</strong> Flow Control</a></li><li class="chapter-item expanded "><a href="components/funcs.html"><strong aria-hidden="true">8.2.</strong> Functions</a></li><li class="chapter-item expanded "><a href="components/modules.html"><strong aria-hidden="true">8.3.</strong> Modules</a></li><li class="chapter-item expanded "><a href="components/libraries.html"><strong aria-hidden="true">8.4.</strong> Libraries</a></li><li class="chapter-item expanded "><a href="components/projects.html"><strong aria-hidden="true">8.5.</strong> Projects</a></li></ol></li><li class="chapter-item expanded "><a href="swe/index.html"><strong aria-hidden="true">9.</strong> Software Engineering</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="swe/principles.html"><strong aria-hidden="true">9.1.</strong> Principles</a></li><li class="chapter-item expanded "><a href="swe/priorities.html"><strong aria-hidden="true">9.2.</strong> Priorities</a></li><li class="chapter-item expanded "><a href="swe/architecture.html"><strong aria-hidden="true">9.3.</strong> Architecture</a></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="feedback.html">Feedback</a></li><li class="chapter-item expanded affix "><a href="redirects/docs.html">LFE Documentation</a></li><li class="chapter-item expanded affix "><a href="redirects/rebar3.html">LFE rebar3 Plugin</a></li><li class="chapter-item expanded affix "><a href="redirects/mdbook.html">Built with mdBook</a></li></ol>
+        </div>
+        <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+    </nav>
+
+    <div id="page-wrapper" class="page-wrapper">
+
+        <div class="page">
+            
+            <div id="menu-bar-hover-placeholder"></div>
+            <div id="menu-bar" class="menu-bar sticky bordered">
+                <div class="left-buttons">
+                    <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents"
+                        aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <button id="theme-toggle" class="icon-button" type="button" title="Change theme"
+                        aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                        <i class="fa fa-paint-brush"></i>
+                    </button>
+                    <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="lfe-pdp">LFE PDP</button></li>
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="light">Light</button></li>
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="rust">Rust</button></li>
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="coal">Coal</button></li>
+                        <li role="none"><button role="menuitem" class="theme"
+                                id="navy">Navy</button></li>
+                        <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button>
+                        </li>
+                    </ul>
+                    
+                    <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)"
+                        aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S"
+                        aria-controls="searchbar">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    
+                </div>
+
+                <h1 class="menu-title">The LFE Style Guide</h1>
+
+                <div class="right-buttons">
+                    <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <i id="print-button" class="fa fa-print"></i>
+                    </a>
+                    
+                    <a href="https://github.com/cnbbooks/lfe-style-guide" title="Git repository" aria-label="Git repository">
+                        <i id="git-repository-button" class="fa fa-github"></i>
+                    </a>
+                    
+                </div>
+            </div>
+
+            
+            <div id="search-wrapper" class="hidden">
+                <form id="searchbar-outer" class="searchbar-outer">
+                    <input type="search" name="search" id="searchbar" name="searchbar"
+                        placeholder="Search this book ..." aria-controls="searchresults-outer"
+                        aria-describedby="searchresults-header">
+                </form>
+                <div id="searchresults-outer" class="searchresults-outer hidden">
+                    <div id="searchresults-header" class="searchresults-header"></div>
+                    <ul id="searchresults">
+                    </ul>
+                </div>
+            </div>
+            
+
+            <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+            <script type="text/javascript">
+                document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                Array.from(document.querySelectorAll('#sidebar a')).forEach(function (link) {
+                    link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                });
+            </script>
+
+            <div id="content" class="content">
+                <main>
+                    <p><a href="images/cover-large.jpg"><img src="images/cover.jpg" alt="" /></a></p>
+<!-- Named page links below: /-->
+<h1><a class="header" href="#the-lfe-style-guide" id="the-lfe-style-guide">The LFE Style Guide</a></h1>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<p>Adatped from multiple sources
+<br/>
+by Duncan McGreggor</p>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<p><a href="http://cnbb.pub/"><img src="images/cnbb-pub-logo-1.6.png" alt="publisher logo" /></a></p>
+<!-- Named page links below: /-->
+<p>Published by Cowboys 'N' Beans Books</p>
+<p><a href="https://github.com/cnbbooks">https://github.com/cnbbooks</a> ◈ <a href="http://cnbb.pub/">http://cnbb.pub/</a> ◈ <a href="mailto:info@cnbb.pub">info@cnbb.pub</a></p>
+<br/>
+<br/>
+<br/>
+<p>First electronic edition published: 2013</p>
+<p>Second electronic edition published: 2020</p>
+<br/>
+<br/>
+<br/>
+<p>Portions © 1987-2020 Klas Eriksson, Mike Williams, Joe Armstrong</p>
+<p>Portions © 1992, 1993 Peter Norvig</p>
+<p>Portions © 1992, 1993 Kent Pitman</p>
+<p>Portions © 2013-2020, Duncan McGreggor</p>
+<p>This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
+<p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" alt="Creative Commons License" /></a></p>
+<br/>
+<br/>
+<br/>
+<p>Cover art: Original version from <a href="https://archive.org/details/bitsavers_decpdp8focogrammingManual1968_2885139">1968 DEC FOCAL Programming Manual</a> with stylised PDP-8 as the dominant cover graphic. Adaptation of the original as a spoof and homage was made in 2015 by Duncan McGreggor.</p>
+<h1><a class="header" href="#preface" id="preface">Preface</a></h1>
+<p>The LFE Style Guide takes inspiration (and often times actual content) directly from key sources in the Lisp, Erlang, and even Clojure developer communities. These are as follows</p>
+<ul>
+<li><a href="https://google.github.io/styleguide/lispguide.xml">Google Common Lisp Style Guide</a></li>
+<li><a href="https://lisp-lang.org/style-guide/">A Guide to Writing Good, Maintainable Common Lisp Code</a></li>
+<li><a href="http://norvig.com/luv-slides.ps">Tutorial on Good Lisp Programming Style</a></li>
+<li><a href="http://www.erlang.se/doc/programming_rules.shtml">Erlang Programming Rules and Conventions</a></li>
+<li><a href="https://github.com/inaka/erlang_guidelines">Erlang Coding Standards &amp; Guidelines</a></li>
+<li><a href="https://github.com/bbatsov/clojure-style-guide">The Clojure Style Guide</a></li>
+<li><a href="https://stuartsierra.com/2016/clojure-how-to-ns.html">How to ns</a></li>
+</ul>
+<p>Note, however, that these are not considered sacrosanct sources of ultimate truth; (and neither is this guide). Instead, they contain practices that we have either adopted as-is, modified to some extent, or simply rejected (e.g., due to prior conventions established in MACLISP and LMI Lisp, their inapplicability due to LFE's unique status as a Lisp <em>and</em> Erlang dialect, etc.).</p>
+<p>In general we suggest following the LFE style as outlined here if you are creating a new project. If you are contributing to a project maintained by someonoe in the community, we recommend consistency: using the style adopted by <em>that</em> project (for any contributions to that project).</p>
+<p>Above all, enjoy the parenthesis.</p>
+<h1><a class="header" href="#introduction" id="introduction">Introduction</a></h1>
+<p>What is good style?<a href="intro/index.html#footnote-1"><sup>1</sup></a></p>
+<p>Good style in any language consists of code that is:</p>
+<ul>
+<li>Understandable</li>
+<li>Reusable</li>
+<li>Extensible</li>
+<li>Efficient</li>
+<li>Easy to develop and debug</li>
+</ul>
+<p>It also helps ensure correctness, robustness, and compatibility. Maxims of good style are:</p>
+<ul>
+<li>Be explicit</li>
+<li>Be specific</li>
+<li>Be concise</li>
+<li>Be consisten</li>
+<li>Be helpful (anticipate the reader's needs)</li>
+<li>Be conventional (don't be obscure)</li>
+<li>Build abstractions at a usable level</li>
+<li>Allow tools to interact (referential transparency)</li>
+</ul>
+<p>Know the context when reading code:</p>
+<ul>
+<li>Who wrote it and when?</li>
+<li>What were the business needs?</li>
+<li>What other factors contributed to the design decisions?</li>
+</ul>
+<hr />
+<ol>
+<li><a name="footnote-1">
+This page was adatped from the <a href="http://norvig.com/luv-slides.ps">Tutorial on Good Lisp Programming Style</a> by Peter Norvig and Kent Pitman.
+</li>
+</ol>
+<h1><a class="header" href="#formatting" id="formatting">Formatting</a></h1>
+<p>Topics related to the manner of formatter LFE code.</p>
+<h1><a class="header" href="#file-headers" id="file-headers">File Headers</a></h1>
+<p>Every source file should begin with a brief description of the contents of that file.</p>
+<p>After that description, every file should start the code itself with a <code>(defmodule ...)</code> form.</p>
+<pre><code class="language-lisp">;;;; Variable length encoding for integers and floating point numbers.
+
+(defmodule num-encode
+  ...)
+</code></pre>
+<p>It is not necessary to include copyright info in every file as long as the project has a <code>LICENSE</code> file in its top-level directory. Files which differ in license from that file should get have a copyright notice in their header section.</p>
+<p>If you are contributing to a project that has established a convention of adding copyright headers to all files, simply follow that convention.</p>
+<h1><a class="header" href="#indentation" id="indentation">Indentation</a></h1>
+<p>In general, use your text editor's indentation capabilities. If you are contributing to a particular library, be sure to ask the maintainers what standard they use, and follow those same guidelines, thus saving everyone from the drudgery of whitespace fixes later.</p>
+<p>In particular, you'll want to do everything you can to follow the conventions laid out in the Emacs LFE mode supplied in the <a href="https://github.com/rvirding/lfe/tree/develop/emacs">LFE source</a>. Instructions for use are given in the <a href="https://github.com/rvirding/lfe/wiki/Emacs-setup">LFE Github wiki</a>, but we'll repeat it here. Simply edit your <code>~/.emacs</code> file to include the following:</p>
+<pre><code class="language-lisp">;; Prevent tabs being added:
+(setq-default indent-tabs-mode nil)
+
+;; LFE mode.
+;; Set lfe-dir to point to where the lfe emacs files are.
+(defvar lfe-dir (concat (getenv &quot;HOME&quot;) &quot;/git/lfe/emacs&quot;))
+(setq load-path (cons lfe-dir load-path))
+(require 'lfe-start)
+</code></pre>
+<p>In general though, indentation is two lines per form, for instance:</p>
+<pre><code class="language-lisp">(defun f ()
+  (let ((x 1)
+        (y 2))
+    (lfe_io:format &quot;X=~p, Y=~p~n&quot;  (list x y))))
+</code></pre>
+<p>Note that LFE has many exceptions to this rule, given the complex forms it defines for features inherited from Erlang (e.g., pattern-matching in function heads). A few examples for the number exceptions to the two-space indentation rule above:</p>
+<pre><code class="language-lisp">(cond ((lists:member x '(1 2 3)) &quot;First three&quot;)
+      ((=:= x 4) &quot;Is four&quot;)
+      ((&gt;= x 5) &quot;More than four&quot;)
+      ('true &quot;You chose poorly&quot;))
+</code></pre>
+<pre><code class="language-lisp">(defun ackermann
+  ((0 n)
+   (+ n 1))
+  ((m 0)
+   (ackermann (- m 1) 1))
+  ((m n)
+   (ackermann (- m 1) (ackermann m (- n 1)))))
+</code></pre>
+<p>The last function would actually be better written as follows, but the form above demonstrates the indentation point:</p>
+<pre><code class="language-lisp">(defun ackermann
+  ((0 n) (+ n 1))
+  ((m 0) (ackermann (- m 1) 1))
+  ((m n) (ackermann (- m 1) (ackermann m (- n 1)))))
+</code></pre>
+<p>Maintain a consistent indentation style throughout a project.</p>
+<p>Indent carefully to make the code easier to understand.</p>
+<p>Use indentation to make complex function applications easier to read. When an application does not fit on one line or the function takes many arguments, consider inserting newlines between the arguments so that each one is on a separate line. However, do not insert newlines in a way that makes it hard to tell how many arguments the function takes or where an argument form starts and ends.</p>
+<p>Bad:</p>
+<pre><code class="language-text">(do-something first-argument second-argument (lambda (x)
+    (frob x)) fourth-argument last-argument)
+</code></pre>
+<p>Better:</p>
+<pre><code class="language-lisp">(do-something first-argument
+              second-argument
+              (lambda (x) (frob x))
+              fourth-argument
+              last-argument)
+</code></pre>
+<h1><a class="header" href="#vertical-white-space" id="vertical-white-space">Vertical White Space</a></h1>
+<p>You should include one blank line between top-level forms, such as function definitions. Exceptionally, blank lines can be omitted between simple, closely related defining forms of the same kind, such as a group of related type declarations or constant definitions.</p>
+<pre><code class="language-lisp">(defun +my-pi+ () 3.14)
+(defun +my-e+ () 2.72)
+
+(defun factorial (n)
+  (factorial n 1))
+
+(defun factorial
+  ((0 acc) acc)
+  ((n acc) (when (&gt; n 0))
+   (factorial (- n 1) (* n acc))))
+</code></pre>
+<h1><a class="header" href="#horizontal-white-space" id="horizontal-white-space">Horizontal White Space</a></h1>
+<p>Do not include extra horizontal whitespace before or after parentheses or around symbols.</p>
+<p>Furthermore, do not place right parentheses by themselves on a line. A set of consecutive trailing parentheses must appear on the same line.</p>
+<p>Very bad:</p>
+<pre><code class="language-text">( defun factorial
+  (
+    ( 0 acc)
+    acc
+  )
+  (
+    ( n acc)
+      ( when ( &gt; n 0)
+  )
+  ( factorial ( - n 1)
+    ( * n acc
+       )
+     )
+  )
+)
+</code></pre>
+<p>Much better:</p>
+<pre><code class="language-lisp">(defun factorial
+  ((0 acc) acc)
+  ((n acc) (when (&gt; n 0))
+   (factorial (- n 1) (* n acc))))
+</code></pre>
+<p>You should use only one space between forms.</p>
+<p>You should not use spaces to vertically align forms in the middle of consecutive lines. An exception is made when the code possesses an important yet otherwise not visible symmetry that you want to emphasise.</p>
+<p>Bad:</p>
+<pre><code class="language-text">(let* ((low    1)
+       (high   2)
+       (sum    (+ (* low low) (* high high))))
+  ...)
+</code></pre>
+<p>Better:</p>
+<pre><code class="language-lisp">(let* ((low 1)
+       (high 2)
+       (sum (+ (* low low) (* high high))))
+  ...))
+</code></pre>
+<p>You should align nested forms if they occur across more than one line.</p>
+<p>Bad:</p>
+<pre><code class="language-text">(defun munge (a b c)
+(* (+ a b)
+c))
+</code></pre>
+<p>Better:</p>
+<pre><code class="language-lisp">(defun munge (a b c)
+  (* (+ a b)
+     c))
+</code></pre>
+<h1><a class="header" href="#line-length" id="line-length">Line Length</a></h1>
+<p>You should format source code so that no line is longer than 80 characters.</p>
+<p>Old text terminals were standardised on 80 columns which they in turn inherited from even older punch card technology. While modern computer screens support vastly more than this, there are a couple of considerations to keep in mind that motivate us to continue supporting an 80 character limit:</p>
+<ul>
+<li>Displaying code in web pages, paste-bins, gist services, etc., is much cleaner and easier to read when the character width is limited to 80 characters.</li>
+<li>Most modern text editors allow for multiple panes, allowing several files to be open side-by-side, supporting the easy editing and referencing of multiple files simultaneously; limiting these files to 80 characters in width facilitates this type of workflow.</li>
+<li>Code that has to be examined under emergency circumstances (such as via a terminal attached to a crash cart in a data centre, or in an emergency shell session without a graphical window manager) is much easier to read quickly when character width is limited to 80.</li>
+<li>Lastly, such a convention encourages good naming discipline!</li>
+</ul>
+<h1><a class="header" href="#spelling-and-abbreviations" id="spelling-and-abbreviations">Spelling and Abbreviations</a></h1>
+<p>Use correct spelling in your comments, and most importantly in your identifiers. The LFE documentation projects (books and reference materials) use <code>aspell</code> and include <code>make</code> targets for running various spell-checking tasks across the project files. Feel free to borrow from these for your own projects.</p>
+<p>Use common and domain-specific abbreviations, and must be consistent with these abbreviations. You may abbreviate lexical variables of limited scope in order to avoid overly-long symbol names.</p>
+<p>If you're not sure, consult a dictionary, look up alternative spellings in a dictionary, or ask a local expert.</p>
+<p>Here are examples of choosing the correct spelling:</p>
+<ul>
+<li>Use &quot;complimentary&quot; in the sense of a meal or beverage that is not paid for by the recipient, not &quot;complementary&quot;.</li>
+<li>Use &quot;existent&quot; and &quot;nonexistent&quot;, not &quot;existant&quot;. Use &quot;existence&quot;, not &quot;existance&quot;.</li>
+<li>Use &quot;hierarchy&quot; not &quot;heirarchy&quot;.</li>
+<li>Use &quot;precede&quot; not &quot;preceed&quot;.</li>
+<li>Use &quot;weird&quot;, not &quot;wierd&quot;.</li>
+</ul>
+<p>Make appropriate exceptions for industry standard nomenclature/jargon, including plain misspellings. For instance:</p>
+<ul>
+<li>Use &quot;referer&quot;, not &quot;referrer&quot;, in the context of the HTTP protocol.</li>
+</ul>
+<h1><a class="header" href="#naming" id="naming">Naming</a></h1>
+<p>On names and naming in LFE code.</p>
+<h1><a class="header" href="#symbols" id="symbols">Symbols</a></h1>
+<p>Use lower case for all symbols (Erlang &quot;atoms&quot;). Consistently using lower case makes searching for symbol names easier and is more readable.</p>
+<p>Place hyphens between all the words in a symbol. If you can't easily say an identifier out loud, it is probably badly named.</p>
+<p>Always prefer <code>-</code> over <code>/</code> or <code>.</code> unless you have a well-documented overarching reason to, and approval from other hackers who review your proposal.</p>
+<p>Bad:</p>
+<pre><code class="language-text">(defun *default-username* ()&quot;Ann&quot;)
+(defun *max-widget-cnt* () 200)
+</code></pre>
+<p>Better:</p>
+<pre><code class="language-lisp">(defun *default-user-name* () &quot;Ann&quot;)
+(defun *maximum-widget-count* () 200)
+</code></pre>
+<p>Unless the scope of a variable is very small, do not use overly short names like <code>i</code> and <code>zq</code>. </p>
+<h1><a class="header" href="#names-in-modules" id="names-in-modules">Names in Modules</a></h1>
+<p>When naming a symbol in a module, you should not include the module name as part of the name of the symbol. Naming a symbol this way makes it awkward to use from a client module accessing the symbol by qualifying it with a module prefix, where the module name then appears twice (once as part of the module name, another time as part of the symbol name itself).</p>
+<p>Bad:</p>
+<pre><code class="language-text">(defmodule varint
+ (export
+   (varint-length64 0))
+
+(defun varint-length64 () ... )
+
+(defmodule client-code)
+
+(defun +padding+ ()
+ (varint:varint-length64))
+</code></pre>
+<p>Better:</p>
+<pre><code class="language-lisp">(defmodule varint
+  (export
+    (length64 0))
+
+(defun length64 () ... )
+
+(defmodule client-code)
+
+(defun +padding+ ()
+  (varint:length64))
+</code></pre>
+<h1><a class="header" href="#global-variables-and-constants" id="global-variables-and-constants">Global Variables and Constants</a></h1>
+<p>Erlang, and thus LFE, does not support global variables or mutable data. However, many projects define constants in modules. Traditionally, Lisp projects have used symbols enclosed in <code>+</code> for global constants and symbols enclosed in <code>*</code> (a.k.a. &quot;earmuffs&quot;) for global variables.</p>
+<p>Adapted for LFE, one could use these conventions for module constants and default values, respectively.</p>
+<pre><code class="language-lisp">(defun +my-pi+ () 3.14)
+(defun *default-host* () &quot;127.0.0.1&quot;)
+</code></pre>
+<h1><a class="header" href="#predicates" id="predicates">Predicates</a></h1>
+<p>There are several options for naming boolean-valued functions and variables to indicate they are predicates:</p>
+<ul>
+<li>a trailing <code>?</code></li>
+<li>a trailing <code>-p</code></li>
+<li>a trailing <code>p</code></li>
+<li>a leading <code>is-</code></li>
+</ul>
+<p>Modern Lisps tend to prefer <code>?</code>, while classic Lisps tend to use <code>p</code>. Erlang code tends to use <code>is_</code> which translates to <code>is-</code> in LFE. you should use &quot;P&quot; when the rest of the function name is one word and &quot;-P&quot; when it is more than one word.</p>
+<p>A rationale for this convention is given in the CLtL2 chapter on predicates.</p>
+<p>Whichever convention your project wishes to use, be consistent and use only that convention in the entire project.</p>
+<p>Do not use these boolean indicators in functions that do not return booleans and variables that are not boolean-valued.</p>
+<h1><a class="header" href="#intent-not-content" id="intent-not-content">Intent not Content</a></h1>
+<p>You should name a variable according to the high-level concept that it represents (intent), not according to the low-level implementation details of how the concept is represented (content).</p>
+<p>Thus, you should avoid embedding data structure or aggregate type names, such as <code>list</code>, <code>array</code>, or <code>hash-table</code> as part of the variable names, unless you're writing a generic algorithm that applies to arbitrary lists, arrays, hash-tables, etc. In that case it's perfectly OK to name a variable <code>list</code> or <code>array</code>.</p>
+<p>For example, if a variable's value is always a row (or is either a row or NIL), it's good to call it <code>row</code> or <code>first-row</code> or something like that. </p>
+<p><em>Be consistent</em>. If a variable is named <code>row</code> in one function, and its value is being passed to a second function, then call it <code>row</code> rather than, say, <code>value</code>.</p>
+<h1><a class="header" href="#documentation" id="documentation">Documentation</a></h1>
+<p>Topics related to in-code LFE documentation.</p>
+<h1><a class="header" href="#docstrings" id="docstrings">Docstrings</a></h1>
+<p>First and foremost, document everything.</p>
+<p>You should use document strings (a.k.a. &quot;docstrings&quot;) on all visible functions to explain how to use your code.</p>
+<p>Unless some bit of code is painfully self-explanatory, document it with a documentation string.</p>
+<p>Documentation strings are destined to be read by the programmers who use your code. They can be extracted from functions, types, classes, variables and macros, and displayed by programming tools, such as IDEs, or by REPL queries; web-based documentation or other reference works can be created based on them. Documentation strings are thus the perfect locus to document your API. They should describe how to use the code (including what pitfalls to avoid), as opposed to how the code works (and where more work is needed), which is what you'll put in comments.</p>
+<p>Supply a documentation string when defining top-level functions, records, classes, variables and macros. Generally, add a documentation string wherever the language allows.</p>
+<p>For functions, the docstring should describe the function's contract: what the function does, what the arguments mean, what values are returned, what conditions the function can signal. It should be expressed at the appropriate level of abstraction, explaining the intended meaning rather than, say, just the syntax.</p>
+<p>Some LFE forms do not accept docstrings, in which case a preceding code comment should be used instead.</p>
+<pre><code class="language-lisp">(defun small-prime-number? (n)
+  &quot;Return true if N, an integer, is a prime number. Otherwise, return false.&quot;
+  ((n) (when (&lt; n 4))
+   (&gt;= n 2))
+  ((n) (when (== 0 (rem n 2)))
+   'false)
+  ((n)
+   (lists:all #'not/1
+              (lists:map (lambda (x) (== 0 (rem n x)))
+                         (lists:seq 3 (trunc (math:sqrt n)))))))
+</code></pre>
+<pre><code class="language-lisp">(defmacro is (bool-expression)
+  &quot;Assert bool-expression evaluates to 'true.&quot;
+  `(assert ,bool-expression))
+</code></pre>
+<pre><code class="language-lisp">;;; This record tracks test results and is ulimately used when reporting the
+;;; status of completed tests.
+(defrecord state
+  (status (orddict:new))
+  test-type
+  (ok 0)
+  (fail 0)
+  (err 0)
+  (skip 0)
+  (cancel 0)
+  (time 0))
+</code></pre>
+<p>A long docstring may usefully begin with a short, single-sentence summary, followed by the larger body of the docstring.</p>
+<p>Text in successive lines of docstrings are indented two spaces, aligned with the open quote in the first line of documentation, not with the first character of the text.</p>
+<h1><a class="header" href="#code-comments" id="code-comments">Code Comments</a></h1>
+<p>Comments are explanations to the future maintainers of the code. Even if you're the only person who will ever see and touch the code, even if you're either immortal and never going to quit, or unconcerned with what happens after you leave (and have your code self-destruct in such an eventuality), you may find it useful to comment your code. Indeed, by the time you revisit your code, weeks, months or years later, you will find yourself a different person from the one who wrote it, and you will be grateful to the previous you for making the code readable.</p>
+<p>Comment anything complicated so that the next developer can understand what's going on.</p>
+<p>Also use comments as a way to guide those who read the code, so they know what to find where.</p>
+<p>Code comments in LFE, as in most Lisp dialects, begin with a semi-colon, with their number having conventional semantic value:</p>
+<ul>
+<li><strong>Four Semi-colons</strong>: These are used for file headers and important comments that apply to large sections of code in a source file.</li>
+<li><strong>Three Semi-colons</strong>: These are used to begin comments that apply to just one top-level form or small group of top-level forms.</li>
+<li><strong>Two Semi-colons</strong>: These are used inside a top-level form, for comments appearing between lines. For code that uses unobvious forms to accomplish a task, you must include a comment stating the purpose of the form and the task it accomplishes.</li>
+<li><strong>One Semi-colon</strong>: This is used for parenthetical remark and <em>only</em> occurs at the end of a line. You should use spaces to separate the comment from the code it refers to so the comment stands out. You should try to vertically align consecutive related end-of-line comments.</li>
+</ul>
+<p>For all comments, there should be a space between the semicolon and the text of the comment.</p>
+<pre><code class="language-lisp">;;;; File-level comments or comments for large sections of code.
+(defmodule math-n-things
+  (export
+   (utility-function 0)
+   ...
+   (small-prime-number? 1)
+   (large-prime-number? 1)
+   ...))
+
+;;; The functions in this section are utility in nature, supporting others in
+;;; the module. More details on their intended use cases are availale here:
+;;; * https://some.url/
+
+(defun utility-function ()
+  ...)
+
+;;; Prime numbers section
+
+(defun small-prime-number? (n)
+  &quot;Return true if N, an integer, is a prime number. Otherwise, return false.&quot;
+  ((n) (when (&lt; n 4))  ; parenthetical remark here
+   (&gt;= n 2))           ; continuation of the remark
+  ((n) (when (== 0 (rem n 2)))
+   'false)             ; different remark here
+  ((n)
+   ;; Comment that applies to a section of code.
+   (lists:all #'not/1
+              (lists:map (lambda (x) (== 0 (rem n x)))
+                         (lists:seq 3 (trunc (math:sqrt n)))))))
+
+(defun large-prime-number? (n)
+  ...)
+</code></pre>
+<h1><a class="header" href="#attention-required" id="attention-required">Attention Required</a></h1>
+<p>For comments requiring special attention, such as incomplete code, todo items, questions, breakage, and danger, include a <code>TODO</code> or <code>XXX</code> comment indicating the type of problem, its nature, and any notes on how it may be addressed.</p>
+<p>The comments begin with <code>TODO</code> or <code>XXX</code> in all capital letters, followed by the name, e-mail address, or other identifier of the person with the best context about the problem referenced by the <code>TODO</code> or <code>XXX</code>. The main purpose is to have a consistent <code>TODO</code> or <code>XXX</code> that can be searched to find out how to get more details upon request. A <code>TODO</code> or <code>XXX</code> is not a commitment that the person referenced will fix the problem. Thus when you create a <code>TODO</code> or <code>XXX</code>, it is almost always your name that is given.</p>
+<p>Generally, <code>TODO</code> and <code>XXX</code> commands are differentiated in that <code>TODO</code> items represent normal code tasks around such things as incomplete features and <code>XXX</code> items represent a bug, potential bug, pitfalls, incorrectness, inelegance, uncertainty about part of the code, etc. Common synonyms for <code>XXX</code> include <code>BUG</code>, <code>FIXME</code> and sometimes <code>HACK</code> (this last especially for incorrectness or inelegance).</p>
+<p>When signing comments, you should use your username (for code within the company) or full email address (for code visible outside the company), not just initials.</p>
+<pre><code class="language-lisp">;; --- TODO (alice@gmail.com): Refactor to provide a better API.
+</code></pre>
+<pre><code class="language-lisp">;; --- TODO (bob): Remove this code after release 1.7 or before 2012-11-30.
+</code></pre>
+<p>If there is an associated issue or bug ticket with the given <code>TODO</code> or <code>XXX</code> item, be sure to include that in a following line:</p>
+<pre><code class="language-lisp">;; --- XXX (carol): There is a serious issue here, causing problems in other
+;;                  areas of the code. We haven't decided upon the best
+;;                  approach yet. See the following ticket for details:
+;;
+;;                   * https://github.com/examplecom/api/issues/42
+;;
+</code></pre>
+<h1><a class="header" href="#data-representation" id="data-representation">Data Representation</a></h1>
+<p>Notes on basic data structures.</p>
+<h1><a class="header" href="#lists" id="lists">Lists</a></h1>
+<p>Use the appropriate functions when manipulating lists.</p>
+<p>For simple access to list data, you can use <code>car</code>, <code>cdr</code>, <code>cadr</code>, etc. to access list elements and segments. For common pattern-matching in function heads, <code>receive</code>, <code>let</code>, etc., use <code>cons</code> to access the head and tail of a list (e.g., <code>(,head . ,tail)</code>).</p>
+<p>Additionally, don't forget the <code>lists</code> Erlang module for accessing list elements.</p>
+<p>You should avoid using a list as anything besides a container of elements of like type. Avoid using a list as method of passing multiple separate values of different types in and out of function calls. Sometimes it is convenient to use a list as a little ad hoc structure, i.e. &quot;the first element of the list is a <code>foo</code>, and the second is a <code>bar</code>&quot;, but this should be used minimally since it gets harder to remember the little convention. You should only use a list that way when destructuring the list of arguments from a function, or creating a list of arguments to which to <code>apply</code> a function.</p>
+<p>The proper way to pass around an object comprising several values of heterogeneous types is to use a record created via <code>defrecord</code>.</p>
+<h1><a class="header" href="#tuples-and-proplists" id="tuples-and-proplists">Tuples and Proplists</a></h1>
+<p>Do not align keys and values in property lists; instead, simply use the standard Lisp formatting (e.g, as provided by the LFE Emacs formatter).</p>
+<p>Bad:</p>
+<pre><code class="language-lisp">'(#(k1            v1)
+  #(key2          value2)
+  #(key-the-third value-the-third)
+  #(another       one))
+</code></pre>
+<p>Better:</p>
+<pre><code class="language-lisp">'(#(k1 v1)
+  #(key2 value2)
+  #(key-the-third value-the-third)
+  #(another one))
+</code></pre>
+<h1><a class="header" href="#maps" id="maps">Maps</a></h1>
+<p>Do not align keys and values in maps. Note, however, that the LFE Emacs formatter doesn't currently indent maps properly.</p>
+<p>Bad:</p>
+<pre><code class="language-lisp">'#m(k1            v1
+    key2          value2
+    key-the-third value-the-third
+    another       one)
+</code></pre>
+<p>Also bad (formatted with the LFE Emacs formatter):</p>
+<pre><code class="language-lisp">'#m(k1 v1
+       key2          value2
+       key-the-third value-the-third
+       another       one)
+</code></pre>
+<p>Better:</p>
+<pre><code class="language-lisp">#m(k1 v1
+   key2 value2
+   key-the-third value-the-third
+   another one)
+</code></pre>
+<h1><a class="header" href="#records" id="records">Records</a></h1>
+<h2><a class="header" href="#use-records-as-the-principle-data-structure" id="use-records-as-the-principle-data-structure">Use records as the principle data structure</a></h2>
+<p>Use records as the principle data structure in messages. A record is a tagged tuple and was introduced in Erlang version 4.3 and thereafter.</p>
+<p>If the record is to be used in several modules, its definition should be placed in a header file (with suffix <code>.lfe</code>) that is included from the modules. If the record is only used from within one module, the definition of the record should be in the beginning of the file the module is defined in.</p>
+<p>The record features of LFE can be used to ensure cross module consistency of data structures and should therefore be used by interface functions when passing data structures between modules.</p>
+<h2><a class="header" href="#use-selectors-and-constructors" id="use-selectors-and-constructors">Use selectors and constructors</a></h2>
+<p>Use the record macros provided by LFE for managing instances of records. Don't use matching that explicitly assumes that the record is a tuple.</p>
+<p>Bad:</p>
+<pre><code class="language-lisp">(defun demo ()
+  (let* ((joe (make-person name &quot;Joe&quot; age 29))
+         (`#(person ,name ,age) joe))
+    ...
+    ))
+</code></pre>
+<p>Good:</p>
+<pre><code class="language-lisp">(defun demo ()
+  (let* ((joe (make-person name &quot;Joe&quot; age 29))
+         (name-2 (person-name joe)))
+    ...
+    ))
+</code></pre>
+<h1><a class="header" href="#errors" id="errors">Errors</a></h1>
+<h2><a class="header" href="#separate-error-handling-and-normal-case-code" id="separate-error-handling-and-normal-case-code">Separate error handling and normal case code</a></h2>
+<p>Don't clutter code for the &quot;normal case&quot; with code designed to handle exceptions. As far as possible you should only program the normal case. If the code for the normal case fails, your process should report the error and crash as soon as possible. Don't try to fix up the error and continue. The error should be handled in a different process.</p>
+<p>Clean separation of error recovery code and normal case code should greatly simplify the overall system design.</p>
+<p>The error logs which are generated when a software or hardware error is detected will be used at a later stage to diagnose and correct the error. A permanent record of any information that will be helpful in this process should be kept.</p>
+<h2><a class="header" href="#identify-the-error-kernel" id="identify-the-error-kernel">Identify the error kernel</a></h2>
+<p>One of the basic elements of system design is identifying which part of the system has to be correct and which part of the system does not have to be correct.</p>
+<p>In conventional operating system design the kernel of the system is assumed to be, and must be, correct, whereas all user application programs do not necessarily have to be correct. If a user application program fails this will only concern the application where the failure occurred but should not affect the integrity of the system as a whole.</p>
+<p>The first part of the system design must be to identify that part of the system which must be correct; we call this the error kernel. Often the error kernel has some kind of real-time memory resident data base which stores the state of the hardware.</p>
+<h1><a class="header" href="#processes-servers-and-messages" id="processes-servers-and-messages">Processes, Servers and Messages</a></h1>
+<h1><a class="header" href="#processes" id="processes">Processes</a></h1>
+<h2><a class="header" href="#implement-a-process-in-one-module" id="implement-a-process-in-one-module">Implement a process in one module</a></h2>
+<p>Code for implementing a single process should be contained in one module. A process can call functions in any library routines but the code for the &quot;top loop&quot; of the process should be contained in a single module. The code for the top loop of a process should not be split into several modules - this would make the flow of control extremely difficult to understand. This does not mean that one should not make use of generic server libraries, these are for helping structuring the control flow.</p>
+<p>Conversely, code for no more than one kind of process should be implemented in a single module. Modules containing code for several different processes can be extremely difficult to understand. The code for each individual process should be broken out into a separate module.</p>
+<h2><a class="header" href="#use-processes-for-structuring-the-system" id="use-processes-for-structuring-the-system">Use processes for structuring the system</a></h2>
+<p>Processes are the basic system structuring elements. But don't use processes and message passing when a function call can be used instead.</p>
+<h2><a class="header" href="#registered-processes" id="registered-processes">Registered processes</a></h2>
+<p>Registered processes should be registered with the same name as the module. This makes it easy to find the code for a process.</p>
+<p>Only register processes that should live a long time.</p>
+<h2><a class="header" href="#assign-exactly-one-parallel-process-to-each-true-concurrent-activity-in-the-system" id="assign-exactly-one-parallel-process-to-each-true-concurrent-activity-in-the-system">Assign exactly one parallel process to each true concurrent activity in the system</a></h2>
+<p>When deciding whether to implement things using sequential or parallel processes then the structure implied by the intrinsic structure of the problem should be used. The main rule is:</p>
+<p>&quot;Use one parallel process to model each truly concurrent activity in the real world&quot;</p>
+<p>If there is a one-to-one mapping between the number of parallel processes and the number of truly parallel activities in the real world, the program will be easy to understand.</p>
+<h2><a class="header" href="#each-process-should-only-have-one-role" id="each-process-should-only-have-one-role">Each process should only have one &quot;role&quot;</a></h2>
+<p>Processes can have different roles in the system, for example in the client-server model.</p>
+<p>As far as possible a process should only have one role, i.e. it can be a client or a server but should not combine these roles.</p>
+<p>Other roles which process might have are:</p>
+<p>Supervisor: watches other processes and restarts them if they fail.
+Worker: a normal work process (can have errors).
+Trusted Worker: not allowed to have errors.</p>
+<h2><a class="header" href="#use-the-process-dictionary-with-extreme-care" id="use-the-process-dictionary-with-extreme-care">Use the process dictionary with extreme care</a></h2>
+<p>Do not use get and put etc. unless you know exactly what you are doing! Use get and put etc., as little as possible.</p>
+<p>A function that uses the process dictionary can be rewritten by introducing a new argument.</p>
+<p>Don't program like this:</p>
+<pre><code class="language-lisp">(defun tokenize
+  ((`(,head . ,tail))
+    ...)
+  (('())
+    (case (get-characters-from-device (get 'device))
+      ('eof
+        '())
+      (`#(value ,chars)
+        (tokenize chars)))))
+</code></pre>
+<p>The correct solution:</p>
+<pre><code class="language-lisp">(defun tokenize
+  ((device (,head . ,tail))
+    ...)
+  ((device '())
+    (case (get-characters-from-device device)
+      ('eof
+        '())
+      (`#(value, chars)
+        (tokenize device chars)))))
+</code></pre>
+<p>The use of get and put will cause a function to behave differently when called with the same input at different occasions. This makes the code hard to read since it is non-deterministic. Debugging will be more complicated since a function using get and put is a function of not only of its argument, but also of the process dictionary. Many of the run time errors in LFE (for example bad_match) include the arguments to a function, but never the process dictionary.</p>
+<h1><a class="header" href="#servers" id="servers">Servers</a></h1>
+<h2><a class="header" href="#use-generic-functions-for-servers-and-protocol-handlers-wherever-possible" id="use-generic-functions-for-servers-and-protocol-handlers-wherever-possible">Use generic functions for servers and protocol handlers wherever possible</a></h2>
+<p>In many circumstances it is a good idea to use generic server programs such as the generic server implemented in the standard libraries. Consistent use of a small set of generic servers will greatly simplify the total system structure.</p>
+<p>The same is possible for most of the protocol handling software in the system.</p>
+<h2><a class="header" href="#write-tail-recursive-servers" id="write-tail-recursive-servers">Write tail-recursive servers</a></h2>
+<p>All servers must be tail-recursive, otherwise the server will consume memory until the system runs out of it.</p>
+<p>Don't program like this:</p>
+<pre><code class="language-lisp">(defun loop ()
+  (receive
+    (`#(msg1 ,msg1)
+     ...
+     (loop))
+    ('stop 'true)
+    (other
+     (logger:error &quot;Process ~w got unknown msg ~w~n&quot;
+                   `(,(self) ,other))
+     (loop)))
+  ;; don't do this! This is not tail-recursive!
+  (io:format &quot;Server going down&quot; '()))
+</code></pre>
+<p>This is a correct solution:</p>
+<pre><code class="language-lisp">(defun loop ()
+  (receive
+    (`#(msg1 ,msg1)
+     ...
+     (loop))
+    ('stop
+     (io:format &quot;Server going down&quot; '()))
+    (other
+     (logger:error &quot;Process ~w got unknown msg ~w~n&quot;
+                   `(,(self) ,other))
+     (loop))))
+</code></pre>
+<p>If you use some kind of server library, for example generic, you automatically avoid doing this mistake.</p>
+<h1><a class="header" href="#messages" id="messages">Messages</a></h1>
+<h2><a class="header" href="#tag-messages" id="tag-messages">Tag messages</a></h2>
+<p>All messages should be tagged. This makes the order in the receive statement less important and the implementation of new messages easier.</p>
+<p>Don't program like this:</p>
+<pre><code class="language-lisp">(defun loop (state)
+  (receive
+    ...
+    (`#(,mod ,funcs ,args)
+     (erlang:apply mod funcs args)
+     (loop state))
+    ...))
+</code></pre>
+<p>The new message <code> `#(get_status_info ,from ,option)</code> will introduce a conflict if it is placed below the <code> `#(,mod ,funcs ,args)</code> message.</p>
+<p>If messages are synchronous, the return message should be tagged with a new atom, describing the returned message. Example: if the incoming message is tagged get_status_info, the returned message could be tagged status_info. One reason for choosing different tags is to make debugging easier.</p>
+<p>This is a good solution:</p>
+<pre><code class="language-lisp">(defun loop (state)
+  (receive
+    ...
+    (`#(execute ,mod ,funcs ,args)
+     (erlang:apply mod funcs args)
+     (loop state))
+    (`#(get_status_info ,from ,option)
+     (! from `#(status_info ,(get-status-info option state)))
+     (loop state))
+    ...))
+</code></pre>
+<h2><a class="header" href="#use-tagged-return-values" id="use-tagged-return-values">Use tagged return values</a></h2>
+<p>Use tagged return values.</p>
+<p>Don't program like this:</p>
+<pre><code class="language-lisp">(defun keysearch
+  ((key `(#(,key ,value) . ,tail))
+    value)
+  ((key `(cons `#(,wrong-key ,wrong-value) . ,tail))
+    (keysearch key '()))
+  ((key '())
+    'false))
+</code></pre>
+<p>Then (tuple key, value) cannot contain the false value.</p>
+<p>This is the correct solution:</p>
+<pre><code class="language-lisp">(defun keysearch
+  ((key `(#(,key ,value) . ,tail))
+    `#(value ,value))
+  ((key `(#(,wrong-key ,wrong-value) . ,tail))
+    (keysearch key '()))
+  ((key '())
+    'false))
+</code></pre>
+<h2><a class="header" href="#flush-unknown-messages" id="flush-unknown-messages">Flush unknown messages</a></h2>
+<p>Every server should have an Other alternative in at least one receive statement. This is to avoid filling up message queues. Example:</p>
+<pre><code class="language-lisp">(defun main-loop ()
+  (receive
+    (`#(msg1 ,msg1)
+     ...
+     (main-loop))
+    (`#(msg2 ,msg2)
+     ...
+     (main-loop))
+    (other  ; flush the message queue
+     (logger:error &quot;Process ~w got unknown msg ~w~n&quot; `(,(self) ,other))
+     (main-loop))))
+</code></pre>
+<h2><a class="header" href="#interface-functions" id="interface-functions">Interface functions</a></h2>
+<p>Use functions for interfaces whenever possible, avoid sending messages directly. Encapsulate message passing into interface functions. There are cases where you can't do this.</p>
+<p>The message protocol is internal information and should be hidden to other modules.</p>
+<p>Example of interface function:</p>
+<pre><code class="language-lisp">(defmodulee fileserver
+  (export
+   (start 0)
+   (stop 0)
+   (open-file 1)
+   ...))
+
+(defun open-file (server-pid filename)
+  (! serever-pid `#(open-file-request ,filename))
+  (receive
+    (`#(open-file-response ,result) result)))
+
+...
+</code></pre>
+<h2><a class="header" href="#time-outs" id="time-outs">Time-outs</a></h2>
+<p>Be careful when using after in receive statements. Make sure that you handle the case when the message arrives later.</p>
+<h2><a class="header" href="#trapping-exits" id="trapping-exits">Trapping exits</a></h2>
+<p>As few processes as possible should trap exit signals. Processes should either trap exits or they should not. It is usually very bad practice for a process to &quot;toggle&quot; trapping exits.</p>
+<h1><a class="header" href="#software-components" id="software-components">Software Components</a></h1>
+<p>From the smallest chunks of code to a completed project.</p>
+<h1><a class="header" href="#flow-control" id="flow-control">Flow Control</a></h1>
+<h2><a class="header" href="#if-branches" id="if-branches"><code>if</code> Branches</a></h2>
+<p>Large conditional expressions and deeply nested blocks of code are harder to read, so should be factored out into functions.</p>
+<p>For example, this:</p>
+<pre><code class="language-lisp">(if (and (fuelled? rocket)
+         (lists:all #'strapped-in?
+                    (crew rocket))
+         (sensors-working? rocket))
+  (launch rocket)
+  (! pid `#(err &quot;Aborting launch.&quot;)))
+</code></pre>
+<p>Should be refactored to something like this:</p>
+<pre><code class="language-lisp">(defun rocket-ready? (rocket)
+  (and (fuelled? rocket)
+       (lists:all #'strapped-in?
+                  (crew rocket))
+       (sensors-working? rocket)))
+
+(if (rocket-ready-p rocket)
+  (launch rocket)
+  (! pid `#(err &quot;Aborting launch.&quot;)))
+</code></pre>
+<h2><a class="header" href="#case-branches" id="case-branches"><code>case</code> Branches</a></h2>
+<p>Don't write complex <code>case</code> statements with deeply nested branching. Instead, split these into functions, too, pattern-matching in the function heads.</p>
+<h1><a class="header" href="#functions" id="functions">Functions</a></h1>
+<h2><a class="header" href="#keep-functions-small" id="keep-functions-small">Keep Functions Small</a></h2>
+<p>Keep functions small, focused on one thing. If you have six separate tasks being performed by a function, create six functions for these.</p>
+<h2><a class="header" href="#group-functions-logically" id="group-functions-logically">Group Functions Logically</a></h2>
+<p>Try to always separate unexported and exported functions in groups, with the exported ones first, unless it helps readability and code discovery.</p>
+<h1><a class="header" href="#modules" id="modules">Modules</a></h1>
+<p>When defining modules in LFE, put exported functions and their arities on separate lines. Optionally, functions of the same name with different arity may be put on the same line. Functions within a single <code>export</code> call should be sorted alphabetically.</p>
+<p>Do not use <code>(export all)</code>; explicitly exporting functions constitutes the conventional contract for clients utilising the module.</p>
+<p>Very  bad:</p>
+<pre><code class="language-lisp">(defmodule maths
+  (export all))
+</code></pre>
+<p>Bad:</p>
+<pre><code class="language-lisp">(defmodule maths
+  (export (factorial 2)
+          (large-prime-number? 1)
+          (small-prime-number? 1)
+          (ackermann 2)
+          (factorial 1)))
+</code></pre>
+<p>Better:</p>
+<pre><code class="language-lisp">(defmodule maths
+  (export
+   (ackermann 2)
+   (factorial 1) (factorial 2)
+   (large-prime-number? 1)
+   (small-prime-number? 1)))
+</code></pre>
+<p>If you have a public API with groups of related functions in a module, you may indicate their relatedness with separate <code>export</code>s:</p>
+<pre><code class="language-lisp">(defmodule maths
+  (export
+   (util-func 1)
+   (other-util 2))
+  (export
+   (ackermann 2)
+   (factorial 1) (factorial 2)
+   (large-prime-number? 1)
+   (small-prime-number? 1)))
+</code></pre>
+<h2><a class="header" href="#with-pseudo-packages" id="with-pseudo-packages">With Pseudo-Packages</a></h2>
+<p>If you are using the LFE <code>rebar3</code> plugin, then you also have the flexibility of organising your project's source code into sub-directories under your source directory (see the <a href="components/./projects.html">projects</a> section for more information).</p>
+<p>In that case, you would define your module like so:</p>
+<pre><code class="language-lisp">(defmodule project.subdir.maths
+  (export
+   (ackermann 2)
+   (factorial 1) (factorial 2)
+   (small-prime-number? 1)
+   (large-prime-number? 1)))
+</code></pre>
+<p>Since there is no support in Erlang and LFE for actual packages, the dotted name is actually a module. As such, when referencing this module elsewhere, use import aliases to improve readability):</p>
+<pre><code class="language-lisp">(defmodule client
+  (export
+   (some-func 0))
+  (import
+   (from project.subdir.maths
+         (small-prime-number? 1))))
+
+(defun some-func ()
+  (small-prime-number? 100))
+</code></pre>
+<p>Or, if you need to avoid a name collision between the imported function and one in the client module:</p>
+<pre><code class="language-lisp">(defmodule client
+  (export
+   (some-func 0))
+  (import
+   (rename project.subdir.maths
+           ((small-prime-number? 1) small-prime?))))
+
+(defun some-func ()
+  (small-prime? 100))
+</code></pre>
+<h2><a class="header" href="#when-to-create" id="when-to-create">When to Create</a></h2>
+<p>If some portion of your code is reusable enough to be a module then the maintenance gains are really worth the overhead of splitting it out with separate tests and docs.<a href="components/modules.html#footnote-1"><sup>1</sup></a></p>
+<p>Gains for separating code into separate modules include, but are not limited to:</p>
+<ul>
+<li>Easier reuse in other parts of the software being developed.</li>
+<li>Increased ability to reason about problems due to increased simplicity and separation of concerns.</li>
+<li>Great clarity and understanding of the system as a whole.</li>
+</ul>
+<p>A good general workflow around module creation:</p>
+<ol>
+<li>Start small and remain focused on the problem at hand.</li>
+<li>Write just the functions you need.</li>
+<li>Keep the functions small and limit them to one specific chunk of functionality (do one thing and do it well).</li>
+<li>Make incremental changes as needed.</li>
+</ol>
+<p>For new code:</p>
+<ol>
+<li>Experiment with in the LFE REPL by defining your function and then calling with different values (expected and otherwise).</li>
+<li>When it works in the REPL, create a test module in <code>./test</code> and paste the function calls in a test case.</li>
+<li>Create a new module in <code>./src</code> and paste the final form of your function from the REPL.</li>
+<li>Ensure the tests pass successfully for the new module.</li>
+</ol>
+<p><a href="components/libraries.html">Build your libraries</a> using this approach</p>
+<hr />
+<ol>
+<li><a name="footnote-1">
+Parts of this page were adapted from a <a href="https://gist.github.com/substack/5075355">Github Gist</a> by <a href="https://github.com/substack">James Halliday</a>.
+</li>
+</ol>
+<h1><a class="header" href="#libraries" id="libraries">Libraries</a></h1>
+<h2><a class="header" href="#use-before-you-write" id="use-before-you-write">Use Before You Write</a></h2>
+<p>Look for libraries that solve the problems you are trying to solve before embarking on a project. <a href="components/libraries.html#footnote-1"><sup>1</sup></a> Making a project with no dependencies is not some sort of virtue. It doesn’t aid portability and it doesn’t help when it comes to turning a Lisp program into an executable.</p>
+<p>Writing a library that solves the same problem as another hurts consolidation. Generally, you should only do this if you are going to make it worth it: Good, complete documentation, examples, and a well-designed website are – taken together – a good reason to write an alternative library to an existing one.</p>
+<p>As always, check the licensing information of the libraries you use for incompatibilities.</p>
+<h2><a class="header" href="#writing-libraries" id="writing-libraries">Writing Libraries</a></h2>
+<p>Before starting a project, think about its structure: Does every component have to be implemented within the project? Or are there parts that might be usable by others? If so, split the project into libraries.</p>
+<p>If you set out to write a vast monolith and then lose interest, you will end up with 30% of an ambitious project, completely unusable to others because it’s bound to the rest of the unfinished code.</p>
+<p>If you think of your project as a collection of independent libraries, bound together by a thin layer of domain-specific functionality, then if you lose interest in a project you will have left a short trail of useful libraries for others to use and build upon.</p>
+<p>In short: write many small libraries.</p>
+<hr />
+<ol>
+<li><a name="footnote-1">
+This entire page was adapted from the lisp-lang.org Style Guide's <a href="https://lisp-lang.org/style-guide/#general-guidelines">General Guidelines</a>.
+</li>
+</ol>
+<h1><a class="header" href="#projects" id="projects">Projects</a></h1>
+<p>Use the established best practices for Erlang project creation, adapted for LFE.</p>
+<p>These have been used when defining the LFE new project templates in the <a href="https://lfe.io/reference/lfe-rebar3/current/command-ref/projects/index.html">rebar3 plugin</a>. That is probably the best way to get consistent results when creating the most common types of LFE projects (e.g., <code>main</code>-scripts, escripts, libraries, OTP applications, and OTP releases).</p>
+<h2><a class="header" href="#with-pseudo-packages-1" id="with-pseudo-packages-1">With Pseudo-Packages</a></h2>
+<p>While Erlang and LFE do not support packages, it is possible to use the <code>rebar3</code> LFE plugin to simulate packages, complete with project directory structures that consolidate specific functionality in collections of sub-directories. These will be detected at compile-time when you use <code>rebar3 lfe compile</code> and from these, proper Erlang-compatible modules will be compiled (with dotted names preserving the hierarchy). Consider your project's organisation carefully when creating your sub-directory structure.</p>
+<p>Here is a good example for a game project's directory structure:</p>
+<pre><code class="language-shell"> ├── LICENSE
+ ├── README.md
+ ├── rebar.config
+ ├── src
+ │  ├── title.app.src
+ │  └── title
+ │     ├── config.lfe
+ │     ├── db.lfe
+ │     ├── graphics
+ │     │  ├── mesh.lfe
+ │     │  ├── obj.lfe
+ │     │  └── gl.lfe
+ │     └── logging.lfe
+ ├── test
+ ...
+</code></pre>
+<p>The modules under the <code>src/title</code> directory can be represented in a more abstract hierarchy:</p>
+<pre><code class="language-lisp">title
+  title.graphics
+    title.graphics.mesh
+    title.graphics.obj
+    title.graphics.gl
+  title.config
+  title.logging
+  title.db
+</code></pre>
+<p>Keep in mind that the LFE plugin will flatten this structure into sibling files  compiled to the <code>ebin</code> directory:</p>
+<pre><code class="language-shell">title.app
+title.config.beam
+title.db.beam
+title.graphics.mesh.beam
+title.graphics.obj.beam
+title.graphics.gl.beam
+title.logging.beam
+</code></pre>
+<h1><a class="header" href="#software-engineering" id="software-engineering">Software Engineering</a></h1>
+<p>General best practices around software engineering.</p>
+<h1><a class="header" href="#principles" id="principles">Principles</a></h1>
+<p>There are some basic principles for team software development that every developer must keep in mind. Whenever the detailed guidelines are inadequate, confusing or contradictory, refer back to these principles for guidance:</p>
+<ul>
+<li>Every developer's code must be easy for another developer to read, understand, and modify — even if the first developer isn't around to explain it. (This is the &quot;hit by a truck&quot; principle.)</li>
+<li>Everybody's code should look the same. Ideally, there should be no way to look at lines of code and recognize it as &quot;Alice's code&quot; by its style.</li>
+<li>Be precise.</li>
+<li>Be concise.</li>
+<li>Keep it simple.</li>
+<li>Use the smallest hammer for the job.</li>
+<li>Use common sense.</li>
+<li>Keep related code together. Minimize the amount of jumping around someone has to do to understand an area of code.</li>
+</ul>
+<h1><a class="header" href="#priorities" id="priorities">Priorities</a></h1>
+<p>When making decisions about how to write a given piece of code, aim for the following in this priority order:</p>
+<ul>
+<li>Usability by the customer</li>
+<li>Debuggability/Testability</li>
+<li>Readability/Comprehensibility</li>
+<li>Extensibility/Modifiability</li>
+<li>Efficiency (of the LFE code at runtime)</li>
+</ul>
+<p>Most of these are obvious.</p>
+<p>Usability by the customer means that the system has to do what the customer requires; it has to handle the customer's transaction volumes, uptime requirements; etc.</p>
+<p>For the LFE efficiency point, given two options of equivalent complexity, pick the one that performs better. (This is often the same as the one that conses less, i.e. allocates less storage from the heap.)</p>
+<p>Given two options where one is more complex than the other, pick the simpler option and revisit the decision only if profiling shows it to be a performance bottleneck.</p>
+<p>However, avoid premature optimisation. Don't add complexity to speed up something that runs rarely, since in the long run, it matters less whether such code is fast.</p>
+<h1><a class="header" href="#architecture" id="architecture">Architecture</a></h1>
+<p>To build code that is robust and maintainable, it matters a lot how the code is divided into components, how these components communicate, how changes propagate as they evolve, and more importantly how the programmers who develop these components communicate as these components evolve.</p>
+<p>If your work affects other groups, might be reusable across groups, adds new components, has an impact on other groups (including QA or Ops), or otherwise isn't purely local, you must write it up using at least a couple of paragraphs, and get a design approval from the other parties involved before starting to write code — or be ready to scratch what you have when they object.</p>
+<p>If you don't know or don't care about these issues, ask someone who does.</p>
+<h1><a class="header" href="#feedback-and-docs-bugs" id="feedback-and-docs-bugs">Feedback and Docs Bugs</a></h1>
+<p>If you would like to provide feedback about this book, we would welcome the
+chance to improve the experience for everyone. Please
+<a href="https://github.com/cnbbooks/lfe-style-guide/issues/new">create a ticket</a> in the
+Github issue tracker. Be sure to give a full description so that we can best
+help you!</p>
+<meta http-equiv="refresh" content="0; URL=http://docs.lfe.io/" />
+<meta http-equiv="refresh" content="0; URL=https://lfe-rebar3.github.io/" />
+<meta http-equiv="refresh" content="0; URL=https://github.com/rust-lang/mdbook/" />
+
+                </main>
+
+                <nav class="nav-wrapper" aria-label="Page navigation">
+                    <!-- Mobile navigation buttons -->
+                    
+
+                    
+
+                    <div style="clear: both"></div>
+                </nav>
+            </div>
+        </div>
+
+        <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            
+
+            
+        </nav>
+
+    </div>
+
+    
+
+    
+    <!-- Google Analytics Tag -->
+    <script type="text/javascript">
+        var localAddrs = ["localhost", "127.0.0.1", ""];
+
+        // make sure we don't activate google analytics if the developer is
+        // inspecting the book locally...
+        if (localAddrs.indexOf(document.location.hostname) === -1) {
+            (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-38274766-4', 'auto');
+            ga('send', 'pageview');
+        }
+    </script>
+    
+
+    
+
+    
+    <script type="text/javascript">
+        window.playground_copyable = true;
+    </script>
+    
+
+    
+
+    
+    <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+    
+
+    <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+    <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Custom JS scripts -->
+    
+
+    
+    
+    <script type="text/javascript">
+        window.addEventListener('load', function () {
+            window.setTimeout(window.print, 100);
+        });
+    </script>
+    
+    
+
+</body>
+
+</html>
