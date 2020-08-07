@@ -38,6 +38,12 @@ Developers and contributers should scroll to the bottom of this file to read ins
 * [Submit request/feedback ticket](https://github.com/cnbbooks/lfe-sicp/issues/new)
 * [Published content](https://lfe.io/books/sicp/)
 
+## The LFE Style Guide
+
+* [Official repository](https://github.com/cnbbooks/lfe-style-guide.git)
+* [Submit request/feedback ticket](https://github.com/cnbbooks/style-guide/issues/new)
+* [Published content](https://lfe.io/books/style-guide/)
+
 ---
 
 # Developer / Contributor Notes
