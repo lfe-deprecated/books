@@ -65,7 +65,7 @@ init-$(TUT_DIR):
 	@git subtree add \
 	   --prefix $(TUT_DIR) \
 	   $(TUT_REPO) \
-	   master \
+	   main \
 	   --squash
 
 update-$(TUT_DIR):
@@ -73,7 +73,7 @@ update-$(TUT_DIR):
 	   --m "Updated latest from $(TUT_DIR)." \
 	   --prefix $(TUT_DIR) \
 	   $(TUT_REPO) \
-	   master \
+	   main \
 	   --squash
 
 # --- SICP targets ------------------------------------
