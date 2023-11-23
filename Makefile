@@ -58,23 +58,7 @@ update-$(R3_QSTART_DIR):
 
 # --- LFE Tutorial targets ------------------------------------
 
-TUT_REPO = https://github.com/cnbbooks/lfe-tutorial.git
-TUT_DIR = tutorial
-
-init-$(TUT_DIR):
-	@git subtree add \
-	   --prefix $(TUT_DIR) \
-	   $(TUT_REPO) \
-	   main \
-	   --squash
-
-update-$(TUT_DIR):
-	@git subtree pull \
-	   --m "Updated latest from $(TUT_DIR)." \
-	   --prefix $(TUT_DIR) \
-	   $(TUT_REPO) \
-	   main \
-	   --squash
+# WARNING: replaced with HTML redirect
 
 # --- SICP targets ------------------------------------
 
