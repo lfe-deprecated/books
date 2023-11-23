@@ -14,7 +14,17 @@ Developers and contributers should scroll to the bottom of this file to read ins
 
 # Published LFE Books
 
+## The LFE Machine Manual
+
+AKA "The Chinenual" or just "The Manual"
+
+* [Official repository](https://github.com/cnbbooks/lfe-manual.git)
+* [Submit request/feedback ticket](https://github.com/cnbbooks/lfe-manual/issues/new)
+* [Published content](https://lfe.io/books/chinenual/)
+
 ## `rebar3` Quick Start
+
+Soon to be deprecated (will be moved into the Chinenual) ...
 
 * [Official repository](https://github.com/cnbbooks/lfe-rebar3-quick-start.git)
 * [Submit request/feedback ticket](https://github.com/cnbbooks/lfe-rebar3-quick-start/issues/new)
@@ -39,6 +49,8 @@ Developers and contributers should scroll to the bottom of this file to read ins
 * [Published content](https://lfe.io/books/sicp/)
 
 ## The LFE Style Guide
+
+Soon to be deprecated (will be moved into the Chinenual) ...
 
 * [Official repository](https://github.com/cnbbooks/lfe-style-guide.git)
 * [Submit request/feedback ticket](https://github.com/cnbbooks/style-guide/issues/new)
